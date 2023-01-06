@@ -1,0 +1,123 @@
+<div class="container">
+  <!--  <div class="row" style="margin-top: 10px">
+    <div class="col-12">
+      <div class="card bg-primary text-white">
+        <div class="card-header">
+          <h1>Catalogue des PFEs ESSAT</h1>
+          <br />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row" style="margin-top: 5px">
+    <div class="col-3">
+      <div class="list-group">
+        <a href="#" class="list-group-item list-group-item-action active">
+          <span class="fa fa-envelope"></span>
+          Tous les Pfes
+          <span class="badge badge-pill badge-warning">25</span>
+        </a>
+        <a href="#" class="list-group-item list-group-item-action">
+          <span class="fa fa-paper-plane"></span>
+          PFEs Developpement
+          <span class="badge badge-pill badge-info">5</span>
+        </a>
+        <a href="#" class="list-group-item list-group-item-action">
+          PFEs Reseaux
+          <span class="badge badge-pill badge-info">10</span>
+        </a>
+        <a href="#" class="list-group-item list-group-item-action">
+          PFEs Embarque et Iot
+          <span class="badge badge-pill badge-info">2</span>
+        </a>
+        <a href="#" class="list-group-item list-group-item-action">
+          PFEs Telecom
+          <span class="badge badge-pill badge-info">4</span>
+        </a>
+      </div>
+    </div> -->
+
+  <div class="row" style="margin-top: 10px">
+    <div class="col-12">
+      <div class="card bg-primary text-white">
+        <div class="card-header">
+          <h1>Catalogue des PFEs ESSAT</h1>
+          <br />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row" style="margin-top: 10px">
+    <div class="col">
+      <div class="input-group mb-3">
+        <button class="btn btn-danger" [routerLink]="['/add']">Add PFE</button
+        >&nbsp;&nbsp;
+        <input
+          type="text"
+          name="search"
+          placeholder=" Titre du pfe à chercher"
+          [(ngModel)]="titre"
+          aria-label="Search"
+        />&nbsp;&nbsp;
+        <button class="btn btn-primary" (click)="gettitre()">chercher</button>
+      </div>
+    </div>
+    <div></div>
+  </div>
+
+  <div class="row" style="margin-top: 5px">
+    <div class="col-3">
+      <div class="list-group">
+        <a
+          (click)="getPfes()"
+          class="list-group-item list-group-item-action active"
+        >
+          <span class="fa fa-envelope"></span>
+          Tous les Pfes
+          <span class="badge badge-pill badge-warning">{{ long }}</span>
+        </a>
+        <a
+          (click)="getPfeByType(t.id)"
+          *ngFor="let t of types"
+          class="list-group-item list-group-item-action"
+        >
+          <span class="fa fa-paper-plane"></span>
+
+          PFEs {{ t.titre }}
+          <span class="badge badge-pill badge-info"></span>
+        </a>
+      </div>
+    </div>
+
+    <div class="col-9">
+      <div class="col">
+        <div class="card text-dark">
+          <div class="card-header bg-success">Ajouter Pfe</div>
+
+          <div class="form-group">
+            <label> Titre PFE</label>
+            <input type="text" class="form-control" [(ngModel)]="pfe.titre" />
+          </div>
+
+          <label> Type pfe</label>
+          <select class="form-control" [(ngModel)]="pfe.type.id">
+            <option *ngFor="let t of types" value="{{ t.id }}">
+              {{ t.titre }}
+            </option>
+          </select>
+        </div>
+        <div class="form-group text-dark">
+          <button
+            type="submit"
+            class="form-control bg bg-primary text-white"
+            (click)="Add()"
+          >
+            Ajouter un PFEs
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
